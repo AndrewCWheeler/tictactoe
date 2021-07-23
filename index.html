@@ -38,16 +38,19 @@
   </div>
   <script>
     function play(id){
+      // check to ensure a number was chosen:
       let value = document.getElementById(id).value;
       if (value === '' ){
         alert("Not a valid move!");
         return;
       }
+      // check to see if square is taken:
       let square = document.getElementById(value);
       if (square.childNodes.length > 1){
         alert("Square already taken!");
         return;
       }
+      // check to see if there is a winner: 
 
     
       if (id === 'player-1'){
