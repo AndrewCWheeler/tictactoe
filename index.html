@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='styles.css' />
+  <title>Tic Tac Toe</title>
+</head>
+<body>
+  <div class='header'>
+    <h1>Tic Tac Toe</h1>
+  </div>
+  <div class='players-wrapper'>
+    <div class="player">
+      <h3>Mike - X</h3>
+      <input class='play' id='player-1' type='number' step='1' min='1' max='9'/>
+      <button type='button' onclick="play('player-1')">Play</button>
+    </div>
+    <div class="player">
+      <h3>Andrew - O</h3>
+      <input class='play' id='player-2' type='number' step='1' min='1' max='9'/>
+      <button type='button' onclick="play('player-2')">Play</button>
+    </div>
+  </div>
+  <div id='container'>
+    <div class='board'>
+      <div id='1' class='square'>1</div>
+      <div id='2'class='square'>2</div>
+      <div id='3'class='square'>3</div>
+      <div id='4'class='square'>4</div>
+      <div id='5'class='square'>5</div>
+      <div id='6'class='square'>6</div>
+      <div id='7'class='square'>7</div>
+      <div id='8'class='square'>8</div>
+      <div id='9'class='square'>9</div>
+    </div>
+  </div>
+  <script>
+    function play(id){
+      let value = document.getElementById(id).value;
+      if (value === '' ){
+        alert("Not a valid move!");
+        return;
+      }
+      let square = document.getElementById(value);
+      if (square.childNodes.length > 1){
+        alert("Square already taken!");
+        return;
+      }
+
+    
+      if (id === 'player-1'){
+        let newPlay = document.createElement('p');
+        newPlay.textContent = 'X';
+        newPlay.classList.add('supersize');
+        let square = document.getElementById(value);
+        console.log(square);
+        console.log(newPlay);
+        square.appendChild(newPlay);
+      } else if (id === 'player-2'){
+        let newPlay = document.createElement('p');
+        newPlay.textContent = 'O';
+        newPlay.classList.add('supersize');
+        let square = document.getElementById(value);
+        console.log(square);
+        console.log(newPlay);
+        square.appendChild(newPlay);
+      } else {
+        alert('That is not a valid move!')
+      }
+    
+    }
+  </script>
+</body>
+</html>
